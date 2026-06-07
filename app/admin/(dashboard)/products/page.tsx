@@ -43,10 +43,12 @@ export default async function AdminProductsPage() {
                 </td>
                 <td className="p-4 font-medium">{p.name}</td>
                 <td className="p-4">{p.category.name}</td>
-                <td className="p-4">{formatPrice(decimalToNumber(p.price))}</td>
+                <td className="p-4">
+                  {p.price ? formatPrice(decimalToNumber(p.price)) : "—"}
+                </td>
                 <td className="p-4">
                   <Badge variant={p.active ? "success" : "muted"}>
-                    {p.active ? "نشط" : "معطّل"}
+                    {p.active ? "نشط" : "معطل"}
                   </Badge>
                 </td>
                 <td className="p-4">
