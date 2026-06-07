@@ -13,7 +13,7 @@ type FooterProps = {
   instagramLink?: string | null;
   snapchatLink?: string | null;
   tiktokLink?: string | null;
-  kitaLink?: string | null;
+  kitalink?: string | null;
   theChefzLink?: string | null;
 };
 
@@ -27,7 +27,7 @@ export function Footer({
   instagramLink,
   snapchatLink,
   tiktokLink,
-  kitaLink,
+  kitalink,
   theChefzLink,
 }: FooterProps) {
   const locale = useLocaleStore((s) => s.locale);
@@ -36,7 +36,7 @@ export function Footer({
     { href: jahezLink, label: "Jahez" },
     { href: hungerStationLink, label: "HungerStation" },
     { href: toYouLink, label: "ToYou" },
-    { href: kitaLink, label: "Kita" },
+    { href: kitalink, label: "Kita" },
     { href: theChefzLink, label: "TheChefz" },
   ].filter((l) => l.href);
 
@@ -93,6 +93,7 @@ export function Footer({
             ) : (
               <p className="text-sm text-cream/60">-</p>
             )}
+
             {socialLinks.length > 0 && (
               <div className="mt-4">
                 <h4 className="mb-3 font-semibold">تابعونا</h4>
