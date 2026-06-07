@@ -18,7 +18,7 @@ export default async function ShopLayout({
       <main className="flex-1">{children}</main>
       <Footer
         storeName={settings?.storeName ?? "Hit | هيت"}
-        tagline={settings?.tagline ?? "لكل قطعة ذكرى"}
+        tagline={settings?.tagline ?? "أكل قطعة ذكرى"}
         mapLink={settings?.mapLink}
         jahezLink={settings?.jahezLink}
         hungerStationLink={settings?.hungerStationLink}
@@ -26,7 +26,7 @@ export default async function ShopLayout({
         instagramLink={settings?.instagramLink}
         snapchatLink={settings?.snapchatLink}
         tiktokLink={settings?.tiktokLink}
-        kitaLink={settings?.kitaLink}
+        kitalink={settings?.kitalink}
         theChefzLink={settings?.theChefzLink}
       />
     </div>

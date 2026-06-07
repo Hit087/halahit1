@@ -2,10 +2,6 @@ import { prisma } from "@/lib/prisma";
 import { decimalToNumber } from "@/lib/utils";
 import type { HeroSlide, ProductWithImages } from "@/types";
 
-/**
- * 🔥 FIX: stop Prisma crash on Settings
- * (temporary safe fallback so app runs)
- */
 export async function getSettings() {
   try {
     return await prisma.settings.findFirst();
@@ -13,10 +9,20 @@ export async function getSettings() {
     return {
       id: "default",
       storeName: "Hit | هيت",
-      tagline: "لكل قطعة ذكرى",
+      tagline: "أكل قطعة ذكرى",
       whatsappNumber: "",
-      logo: "",
-      mapLink: "",
+      logo: null,
+      mapLink: null,
+      jahezLink: null,
+      hungerStationLink: null,
+      toYouLink: null,
+      tiktokLink: null,
+      instagramLink: null,
+      snapchatLink: null,
+      kitalink: null,
+      theChefzLink: null,
+      adminPassword: null,
+      heroSlides: [],
     };
   }
 }
@@ -106,7 +112,7 @@ export async function getCategoriesWithProducts() {
       ...cat,
       products: cat.products.map(mapProduct),
     }))
-    .filter((cat) => cat.products.length > 0);
+    .filter((cat) => cat.products.length >= 0);
 }
 
 export async function getProducts(filters?: {
@@ -147,7 +153,11 @@ export async function getProductById(id: string) {
   return mapProduct(product);
 }
 
-export async function getRelatedProducts(categoryId: string, excludeId: string, limit = 4) {
+export async function getRelatedProducts(
+  categoryId: string,
+  excludeId: string,
+  limit = 4
+) {
   const products = await prisma.product.findMany({
     where: {
       active: true,
