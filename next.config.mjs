@@ -17,7 +17,7 @@ const nextConfig = {
       { protocol: "https", hostname: "**" },
       { protocol: "http", hostname: "localhost" },
     ],
-    unoptimized: true,
+    minimumCacheTTL: 60 * 60 * 24 * 30,
   },
   experimental: {
     serverActions: {
